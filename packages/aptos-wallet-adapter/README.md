@@ -24,13 +24,13 @@ Supports:
 with `yarn`
 
 ```
-yarn add @manahippo/aptos-wallet-adapter
+yarn add @mesonfi/aptos-wallet-adapter
 ```
 
 with `npm`
 
 ```
-npm install @manahippo/aptos-wallet-adapter
+npm install @mesonfi/aptos-wallet-adapter
 ```
 
 # Examples
@@ -63,7 +63,7 @@ import {
   BloctoWalletAdapter,
   SafePalWalletAdapter,
   FoxWalletAdapter,
-} from '@manahippo/aptos-wallet-adapter';
+} from '@mesonfi/aptos-wallet-adapter';
 
 const wallets = [
   new HippoWalletAdapter(),
@@ -101,7 +101,7 @@ export default App;
 # Web3 Hook
 
 ```typescript
-import { useWallet } from '@manahippo/aptos-wallet-adapter';
+import { useWallet } from '@mesonfi/aptos-wallet-adapter';
 
 const { connected, account, network, ...rest } = useWallet();
 
@@ -125,7 +125,7 @@ const { connected, account, network, ...rest } = useWallet();
 # Connect & Disconnect (updated @ 18/10/2022)
 
 ```typescript
-import { AptosWalletName, useWallet } from "@manahippo/aptos-wallet-adapter"
+import { AptosWalletName, useWallet } from "@mesonfi/aptos-wallet-adapter"
 
 ...
 
@@ -159,8 +159,8 @@ if (!connected) {
 # Hippo Wallet Client
 
 ```typescript
-import { HippoSwapClient, HippoWalletClient } from '@manahippo/hippo-sdk';
-import { getParserRepo } from '@manahippo/hippo-sdk';
+import { HippoSwapClient, HippoWalletClient } from '@mesonfi/hippo-sdk';
+import { getParserRepo } from '@mesonfi/hippo-sdk';
 
 export const hippoWalletClient = async (account: ActiveAptosWallet) => {
   if (!account) return undefined;
@@ -180,8 +180,8 @@ export const hippoWalletClient = async (account: ActiveAptosWallet) => {
 # Hippo Swap Client
 
 ```typescript
-import { HippoSwapClient, HippoWalletClient } from '@manahippo/hippo-sdk';
-import { getParserRepo } from '@manahippo/hippo-sdk/';
+import { HippoSwapClient, HippoWalletClient } from '@mesonfi/hippo-sdk';
+import { getParserRepo } from '@mesonfi/hippo-sdk/';
 
 export const hippoSwapClient = async () => {
   const { netConf } = readConfig();

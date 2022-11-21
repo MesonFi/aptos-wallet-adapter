@@ -18,7 +18,7 @@ import {
   WalletAdapterNetwork,
   Coin98WalletAdapter,
   FoxWalletAdapter
-} from '@manahippo/aptos-wallet-adapter';
+} from '@mesonfi/aptos-wallet-adapter';
 import { useMemo } from 'react';
 import { message } from 'antd';
 

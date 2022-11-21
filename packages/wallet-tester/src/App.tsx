@@ -18,7 +18,7 @@ import {
   WalletAdapterNetwork,
   ONTOWalletAdapter,
   FoxWalletAdapter
-} from '@manahippo/aptos-wallet-adapter';
+} from '@mesonfi/aptos-wallet-adapter';
 import { Col, message, Row, Switch, Typography } from 'antd';
 import MainPage from './pages';
 
