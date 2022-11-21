@@ -115,6 +115,19 @@ export class MartianWalletAdapter extends BaseWalletAdapter {
     }
   }
 
+  async getAccount() {
+    const result = await this._provider.account();
+    return result;
+  }
+
+  async isConnected() {
+    try {
+      return await this._provider.isConnected();
+    } catch {
+      return false;
+    }
+  }
+
   get publicAccount(): AccountKeys {
     return {
       publicKey: this._wallet?.publicKey || null,

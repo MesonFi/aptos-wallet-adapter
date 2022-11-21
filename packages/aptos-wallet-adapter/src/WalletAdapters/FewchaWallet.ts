@@ -90,6 +90,24 @@ export class FewchaWalletAdapter extends BaseWalletAdapter {
     }
   }
 
+  async getAccount() {
+    const result = await this._provider.account();
+    if (result.status === 200) {
+      return result.data;
+    } else {
+      return;
+    }
+  }
+
+  async isConnected() {
+    const result = await this._provider.isConnected();
+    if (result.status === 200) {
+      return result.data;
+    } else {
+      return false;
+    }
+  }
+
   get publicAccount(): AccountKeys {
     return {
       publicKey: this._wallet?.publicKey || null,
@@ -177,21 +195,18 @@ export class FewchaWalletAdapter extends BaseWalletAdapter {
   }
 
   async disconnect(): Promise<void> {
+    const wallet = this._wallet;
     const provider = this._provider || window.fewcha;
-    if (provider) {
+    if (wallet) {
+      this._wallet = null;
+
       try {
-        const isDisconnected = await provider.disconnect();
-        if (isDisconnected.data === true) {
-          this._provider = undefined;
-          this._wallet = null;
-        } else {
-          throw new Error('Disconnect failed');
-        }
+        await provider?.disconnect();
       } catch (error: any) {
         this.emit('error', new WalletDisconnectionError(error?.message, error));
-        throw error;
       }
     }
+
     this.emit('disconnect');
   }
 

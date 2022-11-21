@@ -119,6 +119,8 @@ export abstract class BaseWalletAdapter
 
   abstract icon: string;
 
+  protected abstract _provider: any;
+
   abstract get readyState(): WalletReadyState;
 
   abstract get publicAccount(): AccountKeys;
@@ -126,6 +128,10 @@ export abstract class BaseWalletAdapter
   abstract get network(): NetworkInfo;
 
   abstract get connecting(): boolean;
+
+  get provider() {
+    return this._provider;
+  }
 
   get connected(): boolean {
     return !!this.publicAccount.publicKey;

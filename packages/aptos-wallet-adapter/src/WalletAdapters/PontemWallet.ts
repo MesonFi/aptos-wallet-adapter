@@ -127,6 +127,15 @@ export class PontemWalletAdapter extends BaseWalletAdapter {
     }
   }
 
+  async getAccount() {
+    const result = await this._provider.account();
+    return result && { address: result };
+  }
+
+  async isConnected() {
+    return this._provider.isConnected();
+  }
+
   get publicAccount(): AccountKeys {
     return {
       publicKey: this._wallet?.publicKey || null,
