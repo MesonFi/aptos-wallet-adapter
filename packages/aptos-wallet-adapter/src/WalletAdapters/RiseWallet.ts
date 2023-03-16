@@ -104,6 +104,14 @@ export class RiseWalletAdapter extends BaseWalletAdapter {
     }
   }
 
+  async getAccount () {
+    return await this._provider.account();
+  }
+
+  async isConnected() {
+    return await this._provider.isConnected();
+  }
+
   get publicAccount(): AccountKeys {
     return {
       publicKey: this._wallet?.publicKey || null,
